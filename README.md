@@ -10,7 +10,7 @@ DSL
 
 1. Flavor: a single flavor. can be bought online. comes normally in 10ML flasks
 2. Aroma : a set of flavors in certain percentages. add base and nicotin to have liquid  
-3. Recipe: all information to mix a liquid (flavors, percentage) and some meta data  
+3. Recipe: all information to mix a liquid (flavors and their amount in the aroma) and some meta data  
 4. Liquid: the stuff we vape    
 5. Stash: our stash of flavors and its amounts
 

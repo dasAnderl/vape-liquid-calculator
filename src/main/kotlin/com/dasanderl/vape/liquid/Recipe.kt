@@ -27,6 +27,7 @@ data class Recipe(
         flavours.sumByDouble { it.gramsPer10ml }
             .also {
                 if (it > 13) throw Exception("incorrect flavor grams total $it in 10ml ?")
+                if (it < 0.95) throw Exception("incorrect flavor grams total $it in 10ml ?")
             }
     }
 
