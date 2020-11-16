@@ -14,10 +14,7 @@ fun Double.round(decimals: Int): Double {
     return kotlin.math.round(this * multiplier) / multiplier
 }
 
-fun Double.toString() = this.round(2).also { 322 }
-
 typealias Ml = Double
-typealias Grams = Double
 typealias GramsPer10Ml = Double
 typealias RecipeName = String
 typealias Flavor = String

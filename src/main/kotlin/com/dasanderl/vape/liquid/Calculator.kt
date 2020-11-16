@@ -27,7 +27,6 @@ object Calculator {
             .map {
                 val amount = (it.second!!.ml * 10 / it.first.gramsPer10ml).round(2)
                 FlavorStash(it.first.flavor, amount)
-//                it.first.flavor to amount
             }
             .sortedBy { it.ml }
 
