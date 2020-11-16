@@ -1,7 +1,7 @@
 Vape liquid calculator
 ======================
 
-given recipes.json and a flavors in stash.json, this little app
+given recipes.yaml and a flavors in stash.yaml, this little app
 calculates what you have to buy in aromas in order to produce
 given recipes and amounts considering your given stash.
 

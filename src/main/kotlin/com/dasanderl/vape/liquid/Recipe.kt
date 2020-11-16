@@ -1,8 +1,8 @@
 package com.dasanderl.vape.liquid
 
+import com.charleskorn.kaml.Yaml
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
-import kotlinx.serialization.json.Json
 import java.io.File
 import java.util.*
 
@@ -43,10 +43,10 @@ data class Recipe(
 
     companion object {
         fun all(): List<Recipe> =
-            "/recipes.json"
+            "/recipes.yaml"
                 .let { Recipe::class.java.getResource(it).file }
                 .let { File(it).readText() }
-                .let { Json.decodeFromString<List<Recipe>>(it) }
+                .let { Yaml.default.decodeFromString(it) }
 
         fun countFlavorOccurrences(recipes: List<Recipe> = all()): SortedMap<String, List<String>> {
             return recipes
@@ -58,7 +58,7 @@ data class Recipe(
                 .mapKeys { "${it.value.size} - ${it.key}" }
                 .toSortedMap()
                 .also {
-                    Json.pretty(it.toMap()).also { log(it) }
+                    Yaml.pretty(it.toMap()).also { log(it) }
                 }
         }
 

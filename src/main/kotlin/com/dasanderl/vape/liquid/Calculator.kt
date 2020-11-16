@@ -1,11 +1,21 @@
 package com.dasanderl.vape.liquid
 
+import com.charleskorn.kaml.Yaml
+
 object Calculator {
+
+    @JvmStatic
+    fun main(args: Array<String>) {
+        calc(Stash.get(), Recipe.all())
+    }
+
     fun calc(stash: Stash, recipes: List<Recipe>): List<RecipeResult> {
 
         val stash_ = stash.copy()
         return recipes.map { recipe ->
             calcRecipe(recipe, stash_)
+        }.also {
+            log(Yaml.pretty(it))
         }
     }
 

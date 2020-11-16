@@ -1,7 +1,7 @@
 package com.dasanderl.vape.liquid
 
+import com.charleskorn.kaml.Yaml
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.Json
 import kotlin.math.ceil
 
 object ShoppingCartCalculator {
@@ -32,7 +32,7 @@ object ShoppingCartCalculator {
             .filter { it.ml > 0 }
             .map { FlavorStash(it.flavor, it.ml.round(2)) }
             .let { ShoppingCart(recipeAmounts.toList(), it) }
-            .also { log(Json.pretty(it)) }
+            .also { log(Yaml.pretty(it)) }
     }
 
     fun get(amountLiquid: Ml, stash: Stash = Stash.get(), vararg recipeNames: RecipeName): ShoppingCart {

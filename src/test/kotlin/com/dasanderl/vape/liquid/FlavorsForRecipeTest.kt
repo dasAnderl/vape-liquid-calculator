@@ -1,8 +1,8 @@
 package com.dasanderl.vape.liquid
 
+import com.charleskorn.kaml.Yaml
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
-import kotlinx.serialization.json.Json
 
 class FlavorsForRecipeTest : StringSpec({
 
@@ -16,7 +16,7 @@ class FlavorsForRecipeTest : StringSpec({
                 it.aromaAmountMl shouldBe 4.5
                 it.flavors.sumByDouble { it.ml } shouldBe 4.710000000000001
             }.also {
-                log(Json.pretty(it))
+                log(Yaml.pretty(it))
             }
     }
 
@@ -29,7 +29,7 @@ class FlavorsForRecipeTest : StringSpec({
                 it.aromaAmountMl shouldBe 9.0
                 it.flavors.sumByDouble { it.ml } shouldBe 9.420000000000002
             }.also {
-                log(Json.pretty(it))
+                log(Yaml.pretty(it))
             }
     }
 })

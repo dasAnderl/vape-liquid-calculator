@@ -12,6 +12,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.0.1")
+    implementation("com.charleskorn.kaml:kaml:0.26.0")
     testImplementation("io.kotest:kotest-runner-junit5:4.3.1")
 }

@@ -1,10 +1,9 @@
 package com.dasanderl.vape.liquid
 
+import com.charleskorn.kaml.Yaml
 import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
-import java.io.Serializable
 
-inline fun <reified T> Json.pretty(value: T) = Json { prettyPrint = true }.encodeToString(value)
+inline fun <reified T> Yaml.Companion.pretty(value: T) = Yaml.default.encodeToString(value)
 
 fun Any.log(msg: String) = print(msg)
 

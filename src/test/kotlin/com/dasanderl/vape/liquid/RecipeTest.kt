@@ -12,7 +12,7 @@ class RecipeTest : StringSpec({
   }
  }
 
- "countFlavorOccurence" {
+ "countFlavorOccurrence" {
   Recipe.countFlavorOccurrences()
    .also {
     println(it)
