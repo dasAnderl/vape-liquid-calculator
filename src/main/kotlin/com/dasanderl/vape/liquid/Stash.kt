@@ -14,7 +14,7 @@ data class Stash(val flavorAmounts: List<FlavorAmountMl>) {
                 .let { Yaml.default.decodeFromString(serializer(), it) }
     }
 
-    fun findFlavorStash(flavor: Flavor) = flavorAmounts.find { it.flavor == flavor }
+    fun findFlavorStash(flavor: Flavor): FlavorAmountMl? = flavorAmounts.find { it.flavor == flavor }
 
     /**
      * substracts given flavor amounts from stash

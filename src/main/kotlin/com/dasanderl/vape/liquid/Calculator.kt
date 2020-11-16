@@ -22,13 +22,14 @@ object Calculator {
 
     private fun calcRecipe(recipe: Recipe, stash: Stash): RecipeResult {
 
-        val stashFlavors = stash.flavorAmounts.map { it.flavor }
-
         val missingFlavors = recipe.flavours
             .map { it.flavor }
-            .filterNot { stashFlavors.contains(it) }
+            .filterNot {
+                stash.findFlavorStash(it).let {
+                    it != null && it.ml > 0
+                }
+            }
 
-//        TODO consider empty stashes
         if (missingFlavors.isNotEmpty()) {
             return RecipeResult(recipe.name, missingFlavors = missingFlavors, remainingStash = stash)
         }
