@@ -13,7 +13,7 @@ data class FlavorAmount(val flavor: Flavor, val gramsPer10ml: GramsPer10Ml) {
 data class FlavorStash(val flavor: Flavor, val ml: Ml) {
     operator fun minus(flavorStash: FlavorStash?): FlavorStash {
         if (flavor != flavorStash?.flavor) return this
-        return FlavorStash(flavor, ml - (flavorStash?.ml ?: 0.0))
+        return FlavorStash(flavor, (ml - flavorStash.ml).round(2))
     }
 }
 

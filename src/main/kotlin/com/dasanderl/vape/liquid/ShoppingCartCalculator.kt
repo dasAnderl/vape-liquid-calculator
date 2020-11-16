@@ -42,9 +42,6 @@ object ShoppingCartCalculator {
 }
 
 @Serializable
-data class RecipeAmount(val recipeName: RecipeName, val amountLiquid: Ml)
-
-@Serializable
 data class ShoppingCart(val recipeAmounts: List<RecipeAmount>,
                         val flavorsToBuy: List<FlavorStash>, val pricePer10Ml: Double = 3.5) {
     var priceToBuy: Int = 0

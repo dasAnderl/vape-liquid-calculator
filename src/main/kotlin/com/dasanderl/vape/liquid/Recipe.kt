@@ -14,25 +14,14 @@ data class RecipeResult(
     val missingFlavors: List<Flavor> = emptyList(),
     val mixableAmountPerFlavor: List<FlavorStash> = emptyList(),
     val remainingStash: Stash,
-) {
-    fun mixable() = missingFlavors.isEmpty()
-
-    fun stashReduction(stash: Stash, recipe: Recipe): List<FlavorStash> {
-
-        val multiplier = amountMixableMl / 10
-        return recipe
-            .flavours
-            .map { FlavorStash(it.flavor, it.gramsPer10ml * multiplier) }
-    }
-}
+)
 
 @Serializable
 data class Recipe(
     val name: RecipeName,
     val url: String,
     val mixingPct: Percent,
-    val flavours: List<FlavorAmount>,
-    val desiredAmountMl: Ml = 100.0
+    val flavours: List<FlavorAmount>
 ) {
     init {
         flavours.sumByDouble { it.gramsPer10ml }
@@ -65,3 +54,6 @@ data class Recipe(
         fun byName(name: RecipeName) = all().find { it.name == name }!!
     }
 }
+
+@Serializable
+data class RecipeAmount(val recipeName: RecipeName, val amountLiquid: Ml)

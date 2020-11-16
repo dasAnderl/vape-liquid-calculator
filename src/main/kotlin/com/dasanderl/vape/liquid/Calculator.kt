@@ -11,9 +11,10 @@ object Calculator {
 
     fun calc(stash: Stash, recipes: List<Recipe>): List<RecipeResult> {
 
-        val stash_ = stash.copy()
+        var stash_ = stash.copy()
         return recipes.map { recipe ->
             calcRecipe(recipe, stash_)
+                .also { stash_ = it.remainingStash }
         }.also {
             log(Yaml.pretty(it))
         }
@@ -32,7 +33,8 @@ object Calculator {
             return RecipeResult(recipe.name, missingFlavors = missingFlavors, remainingStash = stash)
         }
 
-        val maxFlavorStahshes = recipe.flavours
+        //the maximum amount of aroma for each flavor in stash
+        val maxFlavorStashes = recipe.flavours
             .map { it to stash.findFlavorStash(it.flavor) }
             .map {
                 val amount = (it.second!!.ml * 10 / it.first.gramsPer10ml).round(2)
@@ -40,13 +42,17 @@ object Calculator {
             }
             .sortedBy { it.ml }
 
-        val amountMixableMl = maxFlavorStahshes.minOf { it.ml }
+        // the max ml of aroma mixable is the lowest number of above values
+        val amountMixableMl = maxFlavorStashes.minOf { it.ml }
+        val amountMixableLiquidMl = (amountMixableMl * ( 100 / recipe.mixingPct)).round(2)
+        //  get the amount of flavors needed for this recipe and the amount
+        val flavorsForRecipe = FlavorsForRecipe.get(recipe, amountMixableLiquidMl)
         return RecipeResult(
             recipe.name,
             amountMixableMl,
-            (amountMixableMl * recipe.mixingPct).round(2),
-            mixableAmountPerFlavor = maxFlavorStahshes,
-            remainingStash = stash - maxFlavorStahshes,
+            amountMixableLiquidMl,
+            mixableAmountPerFlavor = maxFlavorStashes,
+            remainingStash = stash - flavorsForRecipe.flavors,
         )
     }
 }
