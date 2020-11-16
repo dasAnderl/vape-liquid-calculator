@@ -5,7 +5,7 @@ import kotlinx.serialization.encodeToString
 
 inline fun <reified T> Yaml.Companion.pretty(value: T) = Yaml.default.encodeToString(value)
 
-fun Any.log(msg: String) = print(msg)
+fun log(msg: String) = print(msg)
 
 fun Double.round(decimals: Int): Double {
     var multiplier = 1.0

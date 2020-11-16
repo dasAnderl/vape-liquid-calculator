@@ -24,13 +24,13 @@ object ShoppingCartCalculator {
             .flatMap { it.flavors }
             .groupBy { it.flavor }
             .mapValues { it.value.sumByDouble { it.ml } }
-            .map { FlavorStash(it.key, it.value ) }
-            .let { Stash(it) - stash.flavorStashes }
+            .map { FlavorAmountMl(it.key, it.value ) }
+            .let { Stash(it) - stash.flavorAmounts }
 
         return neededFlavorsMinusStash
-            .flavorStashes
+            .flavorAmounts
             .filter { it.ml > 0 }
-            .map { FlavorStash(it.flavor, it.ml.round(2)) }
+            .map { FlavorAmountMl(it.flavor, it.ml.round(2)) }
             .let { ShoppingCart(recipeAmounts.toList(), it) }
             .also { log(Yaml.pretty(it)) }
     }
@@ -43,7 +43,7 @@ object ShoppingCartCalculator {
 
 @Serializable
 data class ShoppingCart(val recipeAmounts: List<RecipeAmount>,
-                        val flavorsToBuy: List<FlavorStash>, val pricePer10Ml: Double = 3.5) {
+                        val flavorsToBuy: List<FlavorAmountMl>, val pricePer10Ml: Double = 3.5) {
     var priceToBuy: Int = 0
     var price: Int = 0
     var pricePer10ml: Double = 0.0

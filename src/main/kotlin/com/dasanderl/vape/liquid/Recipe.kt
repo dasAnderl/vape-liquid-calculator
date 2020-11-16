@@ -12,7 +12,7 @@ data class RecipeResult(
     val amountMixableMl: Ml = 0.0,
     val amountMixableLiquidMl: Ml = 0.0,
     val missingFlavors: List<Flavor> = emptyList(),
-    val mixableAmountPerFlavor: List<FlavorStash> = emptyList(),
+    val mixableAmountPerFlavor: List<FlavorAmountMl> = emptyList(),
     val remainingStash: Stash,
 )
 
@@ -21,7 +21,7 @@ data class Recipe(
     val name: RecipeName,
     val url: String,
     val mixingPct: Percent,
-    val flavours: List<FlavorAmount>
+    val flavours: List<FlavorGramsPer10MlAroma>
 ) {
     init {
         flavours.sumByDouble { it.gramsPer10ml }

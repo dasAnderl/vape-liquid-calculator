@@ -9,13 +9,13 @@ class StashTest : StringSpec({
     val stash = Stash.test()
 
     "get stash" {
-        stash.flavorStashes[0] shouldNotBe null
+        stash.flavorAmounts[0] shouldNotBe null
     }
 
     "stash minus itself" {
-        (stash - stash.flavorStashes)
+        (stash - stash.flavorAmounts)
             .also {
-                it.flavorStashes.map { it.ml }.sum() shouldBe 0
+                it.flavorAmounts.map { it.ml }.sum() shouldBe 0
             }
     }
 
@@ -27,10 +27,10 @@ class StashTest : StringSpec({
     }
 
     "stash minus one flavor" {
-        (stash - listOf(FlavorStash("Milk and Honey (Flavorah)", 8.5)))
+        (stash - listOf(FlavorAmountMl("Milk and Honey (Flavorah)", 8.5)))
             .also {
                 it.findFlavorStash("Milk and Honey (Flavorah)")!!.ml shouldBe 1.5
-                it.flavorStashes.sumByDouble { it.ml } shouldBe 41.5
+                it.flavorAmounts.sumByDouble { it.ml } shouldBe 41.5
             }
     }
 })

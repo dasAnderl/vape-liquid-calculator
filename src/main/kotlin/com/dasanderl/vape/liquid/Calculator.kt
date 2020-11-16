@@ -22,7 +22,7 @@ object Calculator {
 
     private fun calcRecipe(recipe: Recipe, stash: Stash): RecipeResult {
 
-        val stashFlavors = stash.flavorStashes.map { it.flavor }
+        val stashFlavors = stash.flavorAmounts.map { it.flavor }
 
         val missingFlavors = recipe.flavours
             .map { it.flavor }
@@ -38,7 +38,7 @@ object Calculator {
             .map { it to stash.findFlavorStash(it.flavor) }
             .map {
                 val amount = (it.second!!.ml * 10 / it.first.gramsPer10ml).round(2)
-                FlavorStash(it.first.flavor, amount)
+                FlavorAmountMl(it.first.flavor, amount)
             }
             .sortedBy { it.ml }
 

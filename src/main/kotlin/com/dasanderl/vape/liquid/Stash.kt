@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 import java.io.File
 
 @Serializable
-data class Stash(val flavorStashes: List<FlavorStash>) {
+data class Stash(val flavorAmounts: List<FlavorAmountMl>) {
     companion object {
         fun get(): Stash =
             "/stash.yml"
@@ -14,12 +14,15 @@ data class Stash(val flavorStashes: List<FlavorStash>) {
                 .let { Yaml.default.decodeFromString(serializer(), it) }
     }
 
-    fun findFlavorStash(flavor: Flavor) = flavorStashes.find { it.flavor == flavor }
+    fun findFlavorStash(flavor: Flavor) = flavorAmounts.find { it.flavor == flavor }
 
-    operator fun minus(flavorStashesMinus: List<FlavorStash>): Stash {
+    /**
+     * substracts given flavor amounts from stash
+     */
+    operator fun minus(flavorAmountsToDeduct: List<FlavorAmountMl>): Stash {
 
-        return this.flavorStashes
-            .map { flavorInStash -> flavorInStash to flavorStashesMinus.find { it.flavor == flavorInStash.flavor } }
+        return this.flavorAmounts
+            .map { flavorInStash -> flavorInStash to flavorAmountsToDeduct.find { it.flavor == flavorInStash.flavor } }
             .map { (flavorInStash, flavorToSubstract) -> flavorInStash - flavorToSubstract }
             .let { Stash(it) }
     }

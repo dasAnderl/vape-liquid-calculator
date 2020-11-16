@@ -31,7 +31,7 @@ class CalculatorTest : StringSpec({
   - flavor: "Biscuit (INAWERA)"
     ml: 169.49
   remainingStash:
-    flavorStashes:
+    flavorAmounts:
     - flavor: "Acetyl Pyrazine 5% (TPA)"
       ml: 3.42
     - flavor: "Banana Cream (TPA)"
@@ -53,7 +53,7 @@ class CalculatorTest : StringSpec({
   - "Vanillin 10% (PG) (TPA)"
   mixableAmountPerFlavor: []
   remainingStash:
-    flavorStashes:
+    flavorAmounts:
     - flavor: "Acetyl Pyrazine 5% (TPA)"
       ml: 3.42
     - flavor: "Banana Cream (TPA)"

@@ -5,6 +5,15 @@ given recipes.yaml and a flavors in stash.yaml, this little app
 calculates what you have to buy in aromas in order to produce
 given recipes and amounts considering your given stash.
 
+DSL
+===
+
+1. Flavor: a single flavor. can be bought online. comes normally in 10ML flasks
+2. Aroma : a set of flavors in certain percentages. add base and nicotin to have liquid  
+3. Recipe: all information to mix a liquid (flavors, percentage) and some meta data  
+4. Liquid: the stuff we vape    
+5. Stash: our stash of flavors and its amounts
+
 Usage
 =====
 
