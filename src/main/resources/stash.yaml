@@ -1,12 +1,76 @@
 ---
 flavorAmounts:
-    - flavor: Acetyl Pyrazine 5% (TPA)
-      ml: 0
-    - flavor: Banana Cream (TPA)
-      ml: 0
-    - flavor: Biscuit (INAWERA)
-      ml: 0
-    - flavor: Milk and Honey (Flavorah)
-      ml: 0
-    - flavor: Super Sweet (CAP)
-      ml: 0
+  - flavor: Acetyl Pyrazine 5% (TPA)
+    ml: 15
+  - flavor: Apple Fuji (FA)
+    ml: 8
+  - flavor: Apple Pie (FA)
+    ml: 8
+  - flavor: Apple Pie (TPA)
+    ml: 3
+  - flavor: Banana Cream (TPA)
+    ml: 10
+  - flavor: Bavarian Cream (FW)
+    ml: 7
+  - flavor: Biscuit (FA)
+    ml: 7
+  - flavor: Biscuit (INAWERA)
+    ml: 17
+  - flavor: Blood Orange (Natural) (FW)
+    ml: 20
+  - flavor: Brown Sugar (TPA)
+    ml: 8
+  - flavor: Butter Pecan (FW)
+    ml: 6
+  - flavor: Caramel (FA)
+    ml: 7
+  - flavor: Creme Catalan (FA)
+    ml: 6
+  - flavor: Cinnamon Cylon Catalan (FA)
+    ml: 9
+  - flavor: Flüssigbernstein (FA)
+    ml: 8
+  - flavor: Coconeut extra (TPA)
+    ml: 13
+  - flavor: Graham Cracker Clear (TPA)
+    ml: 10
+  - flavor: Hazelnut (FW)
+    ml: 5
+  - flavor: Hazelnut (TPA)
+    ml: 16
+  - flavor: Hazelnut Dx (TPA)
+    ml: 15
+  - flavor: Kentucky Bourbon (TPA)
+    ml: 2
+  - flavor: Mango (TPA)
+    ml: 20
+  - flavor: Milk and Honey (Flavorah)
+    ml: 10
+  - flavor: Oakwood (FA)
+    ml: 3
+  - flavor: Orange Cream (TPA)
+    ml: 20
+  - flavor: Peanut Butter (TPA)
+    ml: 5
+  - flavor: Pear (TPA)
+    ml: 7
+  - flavor: Pineapple (TPA)
+    ml: 10
+  - flavor: Super Sweet (CAP)
+    ml: 10
+  - flavor: Sweet Cream (TPA)
+    ml: 9
+  - flavor: Sweet Guava (CAP)
+    ml: 20
+  - flavor: Sweetener (FW)
+    ml: 7
+  - flavor: Toasted Almond (TPA)
+    ml: 4
+  - flavor: Vanilla Bourbon (FA)
+    ml: 15
+  - flavor: Vanilla Custard V2 (CAP)
+    ml: 10
+  - flavor: Vanilla French (CAP)
+    ml: 10
+  - flavor: Vanillin 10% (TPA)
+    ml: 13
