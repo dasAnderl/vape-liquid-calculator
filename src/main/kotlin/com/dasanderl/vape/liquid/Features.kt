@@ -25,6 +25,6 @@ object Features {
     /**
      * calcs what must be bought to mix the given recipe amounts, considering the stash
      */
-    fun get(stash: Stash = Stash.get(), vararg recipeAmounts: RecipeAmount): ShoppingCart =
+    fun calcCartForRecipes(stash: Stash = Stash.get(), vararg recipeAmounts: RecipeAmount): ShoppingCart =
         ShoppingCartCalculator.get(stash, *recipeAmounts)
 }

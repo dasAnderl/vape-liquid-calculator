@@ -8,8 +8,8 @@ import java.io.File
 data class Stash(val flavorAmounts: List<FlavorAmountMl>) {
     companion object {
         fun get(): Stash =
-            "/stash.yml"
-                .let { Stash::class.java.getResource(it).file }
+            "/stash.yaml"
+                .let { object {}.javaClass.getResource(it).file }
                 .let { File(it).readText() }
                 .let { Yaml.default.decodeFromString(serializer(), it) }
     }

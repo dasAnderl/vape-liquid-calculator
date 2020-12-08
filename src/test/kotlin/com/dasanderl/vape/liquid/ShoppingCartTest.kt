@@ -37,10 +37,14 @@ flavorsToBuy:
   ml: 99.99
 - flavor: "Vanillin 10% (PG) (TPA)"
   ml: 2.02
-pricePer10Ml: 3.5
-priceToBuy: 91
-price: 76
-pricePer10ml: 0.38"""
+pricePer10MlAroma: 3.5
+nicMg: 6.0
+totalLiquidMl: 2000.0
+priceToBuyAroma: 91
+priceAroma: 76
+pricePer10mlLiquid: 0.74
+nicBottles: 60.0
+priceNicTotal: 72.0"""
             }
     }
 })
