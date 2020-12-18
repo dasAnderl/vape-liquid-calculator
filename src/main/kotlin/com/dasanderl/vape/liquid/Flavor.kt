@@ -35,6 +35,15 @@ data class FlavorsForRecipe(
                 }
             return FlavorsForRecipe(recipe.name, liquidAmount, totalAromaAmountMl, usedFlavors)
         }
+
+        fun get(recipeAmounts: List<RecipeAmount>, stash: Stash = Stash.get()): Stash =
+            recipeAmounts
+                .map { Recipe.byName(it.recipeName) to it.amountLiquid }
+                .map { get(it.first, it.second) }
+                .flatMap { it.flavors}
+                .let {
+                    stash - it
+                }
     }
 }
 

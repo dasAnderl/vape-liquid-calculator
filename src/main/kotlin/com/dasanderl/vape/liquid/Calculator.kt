@@ -1,6 +1,7 @@
 package com.dasanderl.vape.liquid
 
 import com.charleskorn.kaml.Yaml
+import java.lang.Exception
 
 object Calculator {
 
@@ -8,6 +9,23 @@ object Calculator {
     fun main(args: Array<String>) {
         calc(Stash.get(), Recipe.all())
     }
+
+    fun reduceStashByRecipeAmounts(recipeAmounts: List<RecipeAmount>, stash: Stash = Stash.get()): Stash =
+        recipeAmounts
+            .map { Recipe.byName(it.recipeName) to it.amountLiquid }
+            .map { FlavorsForRecipe.get(it.first, it.second) }
+            .flatMap { it.flavors}
+            .let {
+                stash - it
+            }.also { reducedStash ->
+                reducedStash
+                    .flavorAmounts
+                    .find { it.ml < 0.0 }
+                    ?.also {
+                        throw Exception("the recipes would reduce some flavors under 0\n${Yaml.pretty(reducedStash)}")
+                    }
+
+            }
 
     fun calc(stash: Stash, recipes: List<Recipe>): List<RecipeResult> {
 

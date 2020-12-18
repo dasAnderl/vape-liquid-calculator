@@ -27,4 +27,10 @@ object Features {
      */
     fun calcCartForRecipes(stash: Stash = Stash.get(), vararg recipeAmounts: RecipeAmount): ShoppingCart =
         ShoppingCartCalculator.get(stash, *recipeAmounts)
+
+    /**
+     * takes the given stash and reduces it by the given recipes amount
+     */
+    fun reduceStashByRecipeAmounts(recipeAmounts: List<RecipeAmount>, stash: Stash = Stash.get()): Stash =
+        Calculator.reduceStashByRecipeAmounts(recipeAmounts, stash)
 }

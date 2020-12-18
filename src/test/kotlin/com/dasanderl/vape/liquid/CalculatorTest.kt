@@ -1,14 +1,52 @@
 package com.dasanderl.vape.liquid
 
 import com.charleskorn.kaml.Yaml
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
+import java.lang.Exception
 
 class CalculatorTest : StringSpec({
 
  val stash = Stash.test()
  val recipes = Recipe.test()
- val recipe = recipes[0]
+
+ "reduceStashByRecipeAmounts" {
+
+  listOf(
+   RecipeAmount("Boss reserve", 100.0),
+//   RecipeAmount("five pawns queenside spot on", 7.0),
+  )
+   .let {
+    Features.reduceStashByRecipeAmounts(it, stash)
+   }.also {
+    Yaml.pretty(it) shouldBe """flavorAmounts:
+- flavor: "Acetyl Pyrazine 5% (TPA)"
+  ml: 8.95
+- flavor: "Banana Cream (TPA)"
+  ml: 8.47
+- flavor: "Biscuit (INAWERA)"
+  ml: 9.73
+- flavor: "Milk and Honey (Flavorah)"
+  ml: 8.41
+- flavor: "Super Sweet (CAP)"
+  ml: 9.73""".trimIndent()
+   }
+ }
+
+// "reduceStashByRecipeAmounts should throw" {
+//
+//  listOf(
+//   RecipeAmount("Boss reserve", 1000000000.0),
+//   RecipeAmount("five pawns queenside spot on", 7.0),
+//  )
+//   .also {
+//    shouldThrow<Exception> {
+//     Features.reduceStashByRecipeAmounts(it, stash)
+//    }
+//   }
+// }
+
 
  "calc" {
 
