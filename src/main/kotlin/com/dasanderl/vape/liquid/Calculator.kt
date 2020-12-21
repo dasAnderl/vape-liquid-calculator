@@ -20,10 +20,21 @@ object Calculator {
             }.also { reducedStash ->
                 reducedStash
                     .flavorAmounts
-                    .find { it.ml < 0.0 }
-                    ?.also {
-                        throw Exception("the recipes would reduce some flavors under 0\n${Yaml.pretty(reducedStash)}")
+                    .filter { it.ml < 0.0 }
+                    .also {
+                        if(it.isNotEmpty()) {
+                            throw Exception("the recipes would reduce some flavors under 0\n$it")
+                        }
+
                     }
+                return reducedStash
+                    .flavorAmounts
+                    .toMutableList()
+                    .sortedBy { it.flavor }
+                    .let {
+                        Stash(it)
+                    }
+
 
             }
 

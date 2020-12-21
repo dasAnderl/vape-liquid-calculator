@@ -34,20 +34,6 @@ class CalculatorTest : StringSpec({
    }
  }
 
-// "reduceStashByRecipeAmounts should throw" {
-//
-//  listOf(
-//   RecipeAmount("Boss reserve", 1000000000.0),
-//   RecipeAmount("five pawns queenside spot on", 7.0),
-//  )
-//   .also {
-//    shouldThrow<Exception> {
-//     Features.reduceStashByRecipeAmounts(it, stash)
-//    }
-//   }
-// }
-
-
  "calc" {
 
   Calculator.calc(stash, recipes)

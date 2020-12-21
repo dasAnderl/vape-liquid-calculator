@@ -1,7 +1,7 @@
 ---
 flavorAmounts:
   - flavor: "Acetyl Pyrazine 5% (TPA)"
-    ml: 14.69
+    ml: 10.5
   - flavor: "Apple Fuji (FA)"
     ml: 8.0
   - flavor: "Apple Pie (FA)"
@@ -9,29 +9,29 @@ flavorAmounts:
   - flavor: "Apple Pie (TPA)"
     ml: 3.0
   - flavor: "Banana Cream (TPA)"
-    ml: 9.54
+    ml: 3.42
   - flavor: "Bavarian Cream (FW)"
     ml: 7.0
   - flavor: "Biscuit (FA)"
     ml: 7.0
   - flavor: "Biscuit (INAWERA)"
-    ml: 16.92
+    ml: 15.86
   - flavor: "Blood Orange (Natural) (FW)"
-    ml: 20.0
+    ml: 15.21
   - flavor: "Brown Sugar (TPA)"
     ml: 8.0
   - flavor: "Butter Pecan (FW)"
     ml: 6.0
   - flavor: "Caramel (FA)"
     ml: 7.0
-  - flavor: "Creme Catalan (FA)"
-    ml: 6.0
   - flavor: "Cinnamon Cylon Catalan (FA)"
     ml: 9.0
-  - flavor: "Flüssigbernstein (FA)"
-    ml: 8.0
   - flavor: "Coconeut extra (TPA)"
     ml: 13.0
+  - flavor: "Creme Catalan (FA)"
+    ml: 6.0
+  - flavor: "Flüssigbernstein (FA)"
+    ml: 8.0
   - flavor: "Graham Cracker Clear (TPA)"
     ml: 10.0
   - flavor: "Hazelnut (FW)"
@@ -45,11 +45,11 @@ flavorAmounts:
   - flavor: "Mango (TPA)"
     ml: 17.9
   - flavor: "Milk and Honey (Flavorah)"
-    ml: 9.52
+    ml: 3.15
   - flavor: "Oakwood (FA)"
     ml: 3.0
   - flavor: "Orange Cream (TPA)"
-    ml: 20.0
+    ml: 16.63
   - flavor: "Peanut Butter (TPA)"
     ml: 5.0
   - flavor: "Pear (TPA)"
@@ -57,7 +57,7 @@ flavorAmounts:
   - flavor: "Pineapple (TPA)"
     ml: 7.26
   - flavor: "Super Sweet (CAP)"
-    ml: 9.92
+    ml: 8.84
   - flavor: "Sweet Cream (TPA)"
     ml: 9.0
   - flavor: "Sweet Guava (CAP)"
